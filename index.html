@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Decimal Converter</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'><link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  .v {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+p > a {
+  color: white;
+}
+q > u > i > a{
+  color: white;
+}
+.sub-con {
+  border: 10px solid white;
+  border-style: double;
+  border-radius: 30px;
+  padding: 30px;
+  padding-bottom: 0;
+}
+q{
+  width: 350px;
+  font-size: 12px !important;
+  margin-bottom: 20px;
+}
+.links {
+  margin-top: 20px;
+  font-size: 30px;
+  display: flex;
+  width: 300px;
+  justify-content: space-around;
+}
+.fa:hover{
+  color: #306a92;
+}
+.fa {
+  color: white;
+}
+.rights{
+  text-align: right;
+  font-family: 'Comic Sans MS', cursive !important;
+}
+</style>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+
+
+<div class="v bg-primary row">
+  <q><u><i><a href="https://byjus.com/maths/decimal-number-system/">Decimal system:</a></i></u> The purpose of this project is to create a user-friendly web page that can quickly and accurately convert  binary, octal and hexadecimal number to decimal equivalents.One of the fundamental aspects of web development is the ability to convert numbers between different number systems. </q>
+  <div class="sub-con bg-primary">
+  <h2><em>Decimal Converter</em></h2>
+  <div class="form-group border">
+    <select id="select" class="form-select form-control" aria-label="Default select example" onchange="select()" >
+      <option value="0">Decimal ~ Binary</option>
+      <option value="1">Binary ~ Decimal</option>
+      <option value="2">Octal ~ Decimal</option>
+      <option value="3">Hexa ~ Decimal</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label id="ttile-1" for="input">Enter the Decimal number :</label>
+    <input id="input" type="number" placeholder="Enter a value" class="form-control" />
+  </div>
+
+  <div class="form-group">
+    <label id="ttile-2" for="result">Binary Number :</label>
+    <input id="result" placeholder="Binary number" class="form-control" />
+  </div>
+
+  <button type="submit" value="Convert" class="btn btn-success" onclick=" convert()">Convert</button>
+    <p class="rights h5"><a href="https://www.linkedin.com/in/sunil-kumar-ab0a9b24b/" target="blank">~ &#169safikumar00</a></p>
+  </div>
+  <div class="links bg-primary container-fluid">
+      <a href="https://www.linkedin.com/in/sunil-kumar-ab0a9b24b/" target="blank"><i class="fa fa-linkedin"></i></a>
+      <a href="https://www.instagram.com/inked_boi059/" target="blank"><i class="fa fa-instagram"></i></a>
+      <a href="https://t.snapchat.com/SjPRxgmH" target="blank"><i class="fa fa-snapchat"></i></a>
+      <a href="mailto: sk16331ee059@gmail.com" target="blank"><i class="fa fa-google"></i></a>
+      <a href="https://github.com/safikumar00" target="blank"><i class="fa fa-codepen"></i></a>
+      <a href="https://codepen.io/safikumar00" target="blank"><i class="fa fa-github"></i></a>
+     </div>
+</div>
+<!-- partial -->
+  <script  src="./script.js"></script>
+  <script>
+    function select()  {
+  var selected = document.getElementById("select").value;
+  if (selected === "0") {
+    document.getElementById("input").type = "number";
+    document.getElementById("ttile-1").innerHTML = "Enter the Decimal number :";
+    document.getElementById("ttile-2").innerHTML = "Binary number :";
+    document.getElementById("result").placeholder = "Binary number :";
+  }
+  else if(selected === "1") {
+    document.getElementById("input").type = "number";
+    document.getElementById("ttile-1").innerHTML = "Enter the Binary number :";
+    document.getElementById("ttile-2").innerHTML = "Decimal number :";
+    document.getElementById("result").placeholder = "Decimal number :";
+  }
+  else if(selected === "2") {
+    document.getElementById("input").type = "number";
+    document.getElementById("ttile-1").innerHTML = "Enter the Octal number :";
+    document.getElementById("ttile-2").innerHTML = "Decimal number :";
+    document.getElementById("result").placeholder = "Decimal number :";
+  }
+  else if(selected === "3") {
+    document.getElementById("input").type = "text";
+    document.getElementById("ttile-1").innerHTML = "Enter the Hexa Code :";
+    document.getElementById("ttile-2").innerHTML = "Decimal number :";
+    document.getElementById("result").placeholder = "Decimal number :";
+  }
+}
+function convert() {
+  var select = document.getElementById("select").value;
+
+  //Deimal to Binary
+  if (select === "0") {
+    var i = document.getElementById("input").value;
+    var re = "";
+    while (i > 0) {
+      var r = i % 2;
+      if (r === 0) {
+        re = "0" + re;
+      } else {
+        re = "1" + re;
+      }
+      i = Math.floor(i / 2);
+    }
+    document.getElementById("result").value = re;
+  }
+
+  //Binary to Decimal
+  else if (select === "1") {
+    var i = document.getElementById("input").value;
+    var re = 0;
+    var c = 0;
+    while (i > 0) {
+      var r = i % 10;
+      re += r * Math.pow(2, c);
+      i = Math.floor(i / 10);
+      c++;
+    }
+    document.getElementById("result").value = re;
+  }
+  
+  //Octal to Decimal
+  else if (select === "2") {
+    var j = document.getElementById("input").value;
+    var flag = true;
+    while (j>0) {
+      var r = j%10;
+      if(r>7) {
+        alert("octal number doesn't consist of number 8 & 9"+ "\n" + "where you have entered " + r);
+        flag = false;
+        document.getElementById("result").value = "";
+        break;
+      }
+      j = Math.floor(j / 10);
+    }
+    if(flag === true){
+      var i = document.getElementById("input").value;
+    var re = 0;
+    var c = 0;
+    while (i > 0) {
+      var r = i % 10;
+      re += r * Math.pow(8, c);
+      i = Math.floor(i / 10);
+      c++;
+    }
+    document.getElementById("result").value = re;
+    }
+  }
+  
+  //Hexa to Decimal
+  //used JQuery and ParseInt method
+  else if (select === "3") {
+    var i = $("#input").val();
+    var hex = /^[0-9a-fA-F]+$/;
+    if(hex.test(i)){
+      $("#result").val(parseInt(i, 16));
+    }
+    else {
+      alert("Not a Hexa Number")
+    }
+  }
+}
+  </script>
+
+</body>
+</html>
